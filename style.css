@@ -1,0 +1,110 @@
+/*Global*/
+:root {
+    /* Color */
+    --color-white: #ffffff;
+    --color-light-white: #eeeeee;
+    --color-dark-white: #dbdbdb;
+    --color-pink: #fe918d;
+    --color-dark-pink: #ff6863;
+    --color-black: #4d4d4d;
+    --color-grey: #616161;
+    --color-light-grey: #7c7979;
+    --color-blue: #73aace;
+    --color-yellow: #fff7d1;
+    --color-orange: #feb546;
+    --color-black:#000000;
+
+    /* Font size */
+    --font-large: 48px;
+    --font-medium: 28px;
+    --font-regular: 18px;
+    --font-small: 16px;
+    --font-micro:14px;
+
+    /* Font weight */
+    --weight-bold: 700;
+    --weight-semi-bold: 600;
+    --weight-regular: 400;
+
+    /* Size */
+    --size-border-radius: 4px;
+}
+
+/* universal tags */
+*{
+    /* 패딩을 주었을때 width, height가 패딩을 포함 했을때도
+    동일한 높이와 너비가 되도록 만듬 */
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    cursor: default;
+}
+a{
+    /* 밑줄 없애기 */
+    text-decoration: none; 
+    color: var(--color-white);
+}
+ul{
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Typography */
+h1 {
+    font-size: var(--font-large);
+    font-weight: var(--weight-bold);
+    color: var(--color-balck);
+    margin: 16px 0px;
+}
+h2 {
+    font-size: var(--font-regular);
+    font-weight: var(--weight-semi-bold);
+    color: var(--color-balck);
+    margin: 8px 0;
+}
+h3 {
+    font-size: var(--font-regular);
+    font-weight: var(--font-regular);
+    color: var(--color-balck);
+    margin: 8px 0;
+}
+p{
+    font-size: var(--font-regular);
+    font-weight: var(--font-regular);
+    color: var(--color-balck);
+    margin: 4px 0;
+}
+/* Navbar */
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-black);
+    /* 수직으로 중간에 정렬*/
+    align-items: center;
+    color: var(--color-white);
+    padding: 16pxs;
+}
+.navbar_menu {
+    display: flex;
+    /* justify-content: space-between; 이거 아니네^^ */
+}
+/* navbar 버튼들 공간확보 */
+.navbar_menu_item {
+    padding: 8px 12px;
+    margin: 0 4px;
+    /* 사용가능한 곳에는 클릭이 가능해 보여주기 */
+    cursor: pointer;
+}
+.navbar_logo {
+    font-size: var(--font-medium);
+    font-weight: var(--weight-semi-bold);
+}
+.navbar_menu_item.active {
+    /* 보더대신 색을 줌 */
+    /* color: var(--color-orange); */
+}
+.navbar_menu_item:hover {
+    color: var(--color-orange);
+}
