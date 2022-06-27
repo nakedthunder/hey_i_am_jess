@@ -73,7 +73,7 @@ h1 {
     margin: 16px 0px;
 }
 h2 {
-    font-size: var(--font-regular);
+    font-size: var(--font-medium);
     font-weight: var(--weight-semi-bold);
     color: var(--color-balck);
     margin: 8px 0;
@@ -349,4 +349,101 @@ p{
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+/* testimonial */
+#testimonials {
+    background-color: var(--color-dark-red);
+}
+.testimonials {
+    margin: 40px;
+}
+.testimonial {
+    display: flex;
+    margin: 32px 0;
+}
+.testimonial_avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 12px;
+}
+.testimonial_avatar:nth-child(odd){
+    margin-right: 40px;
+}
+.testimonial_avatar:nth-child(even) {
+    margin-left: 40px;
+}
+.testimonial_speech-bubble {
+    padding: 18px;
+    background-color: var(--color-light-white);
+    border-radius: var(--size-border-radius);
+}
+.testimonial_speech-bubble p {
+    color: var(--color-light-grey);
+}
+.testimonial_speech-bubble a {
+    color: var(--color-black);
+}
+/* contact */
+#contact {
+    background-color: var(--color-black);
+}
+.contact_title, 
+.contact_email, 
+.contact_rights {
+    color: var(--color-white);
+}
+.contact_title {
+    margin: 32px 0;
+}
+.contact_links {
+    font-size: var(--font-large);
+    margin: 24px 0;
+    transition: all var(--animaiton-duration) ease-in;
+}
+.contact_links i:hover {
+    transform: scale(1.1);
+    color: var(--color-red);
+}
+.navbar__toggle-btn{
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    font-size: 24px;
+    color: var(--color-white);
+    display: none;
+}
+@media screen and (max-width: 768px){
+    .navbar__toggle-btn{
+        display: block;
+    }
+    #navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navbar_menu {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        display: none;
+    }
+    .about_majors {
+        flex-direction: column;
+    }
+    .major {
+        margin-bottom: 38px;
+    }
+    .skillset {
+        /* 일렬로 컬럼처럼 정렬해준다. */
+        flex-direction: column;
+    }
+    .project {
+        /* 화면을 알아서 매꿔줌  */
+        flex-grow: 1;
+    }
+    .testimonial_avatar {
+        width: 80px;
+        height: 80px;
+    }
+    
 }
