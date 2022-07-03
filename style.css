@@ -92,14 +92,25 @@ p{
 }
 /* Navbar */
 #navbar {
+    /* 이거 참 좋은듯  */
+    width: 100%;
+    /* 항상위에 고정되어 있으니 fixed*/
+    position: fixed;
     display: flex;
     justify-content: space-between;
-    background-color: var(--color-black);
+    /* background-color: var(--color-black); */
+    background-color: transparent;
     /* 수직으로 중간에 정렬*/
     align-items: center;
     color: var(--color-white);
     padding: 16px;
+    transition: all var(--animaiton-duration) ease-in-out;
 }
+#navbar.navbar--dark {
+    background-color: var(--color-black);
+    padding: 8px;
+}
+
 .navbar_menu {
     display: flex;
     /* justify-content: space-between; 이거 아니네^^ */
@@ -124,6 +135,7 @@ p{
 }
 /* home */
 #home {
+    padding: 140px;
     background: url('imgs/home3.png') center/cover no-repeat;
     padding: 40px;
     text-align: center;
@@ -413,6 +425,28 @@ p{
     color: var(--color-white);
     display: none;
 }
+/* scroll */
+.arrow-up {
+    position: fixed;
+    bottom: 50px;
+    right: 30px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: var(--color-red);
+    /* 스크롤링이 되면 보여지게 하기위해서  */
+    /* display: none; */
+    opacity: 0;
+    transition: opacity 300ms ease-in;
+    /* 안보일때는 클릭이 안되도록 */
+    pointer-events: none;
+}
+
+.arrow-up.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+/* 반응형 css */
 @media screen and (max-width: 768px){
     .navbar__toggle-btn{
         display: block;
@@ -447,3 +481,4 @@ p{
     }
     
 }
+

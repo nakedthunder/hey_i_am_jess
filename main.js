@@ -1,5 +1,3 @@
-'use strict'
-
 //1. make navbar transparent when it is on the top , navbar투명하게 
 const navbar = document.querySelector('#navbar');
 const navbarHeight = navbar.getBoundingClientRect().height;
@@ -55,7 +53,7 @@ document.addEventListener('scroll', () => {
 
 // const arrowUpBtn = document.querySelector('#arrow_btn');
 arrowUp.addEventListener('click', () => {
-    scrollIntoView('#navbar');
+    scrollIntoView('#home');
 });
 
 //공통함수 만들기 
