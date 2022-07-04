@@ -1,4 +1,4 @@
-//1. make navbar transparent when it is on the top , navbar투명하게 
+// make navbar transparent when it is on the top , navbar투명하게 
 const navbar = document.querySelector('#navbar');
 const navbarHeight = navbar.getBoundingClientRect().height;
 console.log("쿼리셀렉터 궁금: ", navbarHeight)
@@ -12,7 +12,7 @@ document.addEventListener('scroll', () => {
     }
 });
 
-//2. id를 클릭하면 원하는 섹션으로 이동 scrollIntoView()
+//id를 클릭하면 원하는 섹션으로 이동 scrollIntoView()
 const navbarMenu = document.querySelector('.navbar_menu')
 //클릭한 event를 받음 
 navbarMenu.addEventListener('click', (event) => {
@@ -26,7 +26,7 @@ navbarMenu.addEventListener('click', (event) => {
     scrollIntoView(link); 
 })
 
-//3. handle click on "contact me"
+//handle click on "contact me"
 const homeContactBtn = document.querySelector('.home_contact');
 homeContactBtn.addEventListener('click', () => {
     scrollIntoView('#contact'); 
@@ -56,8 +56,44 @@ arrowUp.addEventListener('click', () => {
     scrollIntoView('#home');
 });
 
+// 필터값에 따라서 타입에 해당하는 얘들을 보여주도록 
+const workBtnContainer = document.querySelector('.work_categories');
+const projectContainer = document.querySelector('.work_projects');
+const projects = document.querySelectorAll('.project');
+console.log("1 : ", workBtnContainer);
+console.log("2: " , projectContainer);
+console.log("3:", projects);
+
+workBtnContainer.addEventListener('click', (e) => {
+    //btn안의 숫자 span에는 data-filter가 없는경우 디버깅툴을 사용해서 검사해봐서 파해치기 
+    const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
+    console.log("눌른 필터 값: ", filter);
+
+    if(filter == null) {
+        return;
+    }
+    projectContainer.classList.add('anim-out');
+    // 브라우저가 제공하는 API를 사용해 
+    setTimeout(() => {
+        //projects(배열)의 요소들을 받아와는 것 (=querySelectorAll)
+    // for(let i = 0; i < projects.length; i++)
+    projects.forEach((project) => {
+        console.log("forEach 프로젝트: ", project.dataset.type);
+        if(filter === '*' || filter === project.dataset.type) {
+            project.classList.remove('invisible');
+        }else {
+            project.classList.add('invisible');
+        }
+    });
+        projectContainer.classList.remove('anim-out'); 
+    }, 300);
+
+});
+
+
 //공통함수 만들기 
 function scrollIntoView(selector) {
     const scrollTo = document.querySelector(selector);
     scrollTo.scrollIntoView({behavior: 'smooth'}); 
 } 
+

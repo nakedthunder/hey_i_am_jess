@@ -130,6 +130,7 @@ p{
     /* 보더대신 색을 줌 */
     /* color: var(--color-orange); */
 }
+/* 마우스가 올라갈때 동작하는 이벤트 :hover */
 .navbar_menu_item:hover {
     color: var(--color-red);
 }
@@ -314,10 +315,19 @@ p{
     justify-content: center;
     align-items: center;
 }
+.project.invisible {
+    display: none;
+}
 .work_projects {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    opacity: 1;
+    transition: all var(--animaiton-duration) ease-in;
+}
+.work_projects.anim-out {
+    opacity: 0;
+    transform: scale(0.96) translateY(40px);
 }
 /* project > img 최고로 커질 수 있는 사이즈로 지정 */
 .project_img {
@@ -338,7 +348,7 @@ p{
     /* 투명도 */
     opacity: 0;
     transform: translateY(10px);
-    transition: all var(--animaiton-duration) ease-in;
+    transition: all var(--animaiton-duration) ease-out;
 }
 .project_description h3 {
     color: var(--color-white);
