@@ -26,6 +26,15 @@ navbarMenu.addEventListener('click', (event) => {
     scrollIntoView(link); 
 })
 
+// Navbar toggle button for small screen
+//내가 동일한 이름으로 div로 감싸고있어서 toggle이 먹히지 않았음 
+const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
+navbarToggleBtn.addEventListener('click', () => {
+    console.log("왜 추가안돼")
+  navbarMenu.classList.toggle('open');
+});
+
+
 //handle click on "contact me"
 const homeContactBtn = document.querySelector('.home_contact');
 homeContactBtn.addEventListener('click', () => {
@@ -72,6 +81,15 @@ workBtnContainer.addEventListener('click', (e) => {
     if(filter == null) {
         return;
     }
+
+    const active = document.querySelector('.category_btn.selected')
+    console.log("액티브: ", active);
+    active.classList.remove('selected');
+    // e.target으로 지정하기 너무 애매함 -> e.target.classList.add('selected'); 
+    const target = e.target.nodeName === 'BUTTON' ? e.target : 
+        e.target.classList.add('selected'); 
+    target.classList.add('selected'); 
+
     projectContainer.classList.add('anim-out');
     // 브라우저가 제공하는 API를 사용해 
     setTimeout(() => {
